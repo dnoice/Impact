@@ -1,0 +1,511 @@
+{
+  "title": "E-commerce Global Statistics and Environmental Impact",
+  "tables": [
+    {
+      "id": "I.1",
+      "title": "Global & Key National E-commerce Sales and Growth (USD Trillion, % YoY), 2021-2027P",
+      "data": [
+        {
+          "region": "Global",
+          "metrics": [
+            {
+              "name": "Sales (USD T)",
+              "values": {
+                "2021": 4.98,
+                "2022": 5.29,
+                "2023": 5.82,
+                "2024P": 6.33,
+                "2025P": 6.86,
+                "2026P": 7.41,
+                "2027P": 7.96
+              }
+            },
+            {
+              "name": "Growth YoY (%)",
+              "values": {
+                "2021": "17.42 (vs 2020)",
+                "2022": 6.22,
+                "2023": 9.07,
+                "2024P": 8.76,
+                "2025P": 8.37,
+                "2026P": "7.99 (CAGR 25-27: 7.8%)",
+                "2027P": 7.42
+              }
+            }
+          ]
+        },
+        {
+          "region": "USA",
+          "metrics": [
+            {
+              "name": "Sales (USD T)",
+              "values": {
+                "2021": 0.96,
+                "2022": 1.04,
+                "2023": 1.19,
+                "2024P": 1.1926,
+                "2025P": 1.29,
+                "2026P": "N/A",
+                "2027P": 1.72
+              }
+            },
+            {
+              "name": "Growth YoY (%)",
+              "values": {
+                "2021": "17.3 (vs 2020)",
+                "2022": 8.5,
+                "2023": 9.3,
+                "2024P": "10.5 (Retail)",
+                "2025P": "10.8 (Retail)",
+                "2026P": "N/A",
+                "2027P": "11.3 (Retail)"
+              }
+            }
+          ]
+        }
+      ],
+      "notes": "P = Projected. Growth rates may vary slightly based on source."
+    },
+    {
+      "id": "I.2",
+      "title": "Global E-commerce Sales by Key Product Category (Estimated Spending USD Billion & % Share), 2025P",
+      "data": [
+        {
+          "productCategory": "Consumer Electronics",
+          "estimatedSpending2025P": 922.5,
+          "shareOfGlobal2025P": "13.4%"
+        },
+        {
+          "productCategory": "Fashion",
+          "estimatedSpending2025P": 760.0,
+          "shareOfGlobal2025P": "11.1%"
+        },
+        {
+          "productCategory": "Food and Beverages",
+          "estimatedSpending2025P": 708.8,
+          "shareOfGlobal2025P": "10.3%"
+        },
+        {
+          "productCategory": "Toys, Hobby & DIY",
+          "estimatedSpending2025P": "N/A / ~780",
+          "shareOfGlobal2025P": "N/A / ~11.4%"
+        },
+        {
+          "productCategory": "DIY and Hardware items",
+          "estimatedSpending2025P": 220.2,
+          "shareOfGlobal2025P": "3.2%"
+        },
+        {
+          "productCategory": "Furniture",
+          "estimatedSpending2025P": 220.1,
+          "shareOfGlobal2025P": "3.2%"
+        },
+        {
+          "productCategory": "Media",
+          "estimatedSpending2025P": 193.9,
+          "shareOfGlobal2025P": "2.8%"
+        },
+        {
+          "productCategory": "Beauty and personal care",
+          "estimatedSpending2025P": 169.6,
+          "shareOfGlobal2025P": "2.5%"
+        }
+      ],
+      "notes": "Percentage share calculated against 's 2025 global sales projection. provides alternative recent revenue figures without a specific year for Toys/Hobby/DIY."
+    },
+    {
+      "id": "I.3",
+      "title": "Leading Online Retailer E-commerce Revenue & Market Share, Recent Data",
+      "data": [
+        {
+          "retailer": "Amazon",
+          "metrics": [
+            {
+              "name": "US E-commerce Market Share",
+              "value": "37.6%",
+              "yearPeriod": "Recent"
+            },
+            {
+              "name": "Total Net Sales",
+              "value": "638.0 Billion",
+              "yearPeriod": "FY 2024"
+            },
+            {
+              "name": "Online Stores Net Sales (Global)",
+              "value": "57.407 Billion",
+              "yearPeriod": "Q1 2025"
+            }
+          ]
+        },
+        {
+          "retailer": "Walmart",
+          "metrics": [
+            {
+              "name": "US E-commerce Market Share",
+              "value": "6.4%",
+              "yearPeriod": "Recent"
+            },
+            {
+              "name": "Global E-commerce Sales",
+              "value": "121 Billion",
+              "yearPeriod": "FY 2025"
+            }
+          ]
+        },
+        {
+          "retailer": "Alibaba",
+          "metrics": [
+            {
+              "name": "Total Revenue",
+              "value": "137.3 Billion",
+              "yearPeriod": "FY 2025"
+            },
+            {
+              "name": "GMV (Taobao & Tmall, China Commerce Retail)",
+              "value": "1.258 Trillion",
+              "yearPeriod": "FY 2022"
+            }
+          ]
+        }
+      ],
+      "notes": "FY = Fiscal Year. GMV for Alibaba is a measure of transaction volume, not direct revenue to Alibaba for all transactions."
+    },
+    {
+      "id": "II.1",
+      "title": "Global E-commerce Plastic Packaging Usage & Waste (Million Metric Tons), 2019-2023, 2027P",
+      "data": [
+        {
+          "year": "2019",
+          "plasticPackagingUsage": "~1.0",
+          "plasticPackagingWaste": "~1.0 (assumed all became waste)"
+        },
+        {
+          "year": "2022",
+          "plasticPackagingUsage": "1.76 (3.88 billion lbs)",
+          "plasticPackagingWaste": "N/A (but implied similar to usage)"
+        },
+        {
+          "year": "2023",
+          "plasticPackagingUsage": "1.45 (3.2 billion lbs)",
+          "plasticPackagingWaste": ">1.5"
+        },
+        {
+          "year": "2027P",
+          "plasticPackagingUsage": "3.11 (6.85 billion lbs, projected waste)",
+          "plasticPackagingWaste": "3.11"
+        }
+      ],
+      "notes": "Slight variations exist due to different reporting and estimation methodologies."
+    },
+    {
+      "id": "II.2",
+      "title": "Estimated Annual E-commerce Packaging Material Consumption by Type (Million Metric Tons), Recent Years",
+      "data": [
+        {
+          "materialType": "Plastic Packaging",
+          "estimatedAnnualConsumption": "1.45 - 1.76",
+          "year": "2022-2023"
+        },
+        {
+          "materialType": "Corrugated Board",
+          "estimatedAnnualConsumption": "~165 (Total Global, e-commerce is a large share)",
+          "year": "2023"
+        },
+        {
+          "materialType": "EPS Foam",
+          "estimatedAnnualConsumption": "7.2 (Total Global EPS market, packaging is a key segment)",
+          "year": "2022"
+        }
+      ],
+      "notes": "Corrugated board and EPS foam figures are for the total market, with e-commerce being a significant driver but not exclusively isolated in these broad figures."
+    },
+    {
+      "id": "III.1",
+      "title": "CO₂ Emission Factors for Key Freight Modes (g CO₂e/tonne-km or equivalent)",
+      "data": [
+        {
+          "freightMode": "Ocean Container",
+          "emissionFactor": "Not directly stated (Total 240.6M tons CO₂ in 2024)",
+          "regionScope": "Global",
+          "yearOfData": "2024"
+        },
+        {
+          "freightMode": "Air Freight",
+          "emissionFactor": "~657.69 g CO₂/tonne-km",
+          "regionScope": "Global",
+          "yearOfData": "2018"
+        },
+        {
+          "freightMode": "Road Freight (HDV)",
+          "emissionFactor": "~56.5 g CO₂/tkm (specific EU subgroup 5-LH)",
+          "regionScope": "EU",
+          "yearOfData": "Recent"
+        },
+        {
+          "freightMode": "Road Freight (HDV)",
+          "emissionFactor": "~144.5 g CO₂/tonne-km (derived from EPA factor)",
+          "regionScope": "US",
+          "yearOfData": "2021"
+        },
+        {
+          "freightMode": "Last-Mile Van (New)",
+          "emissionFactor": "158.4 g CO₂/km (vehicle emission, not per tkm)",
+          "regionScope": "EU",
+          "yearOfData": "2019"
+        }
+      ],
+      "notes": "Direct comparability is limited due to varying units and system boundaries. Van emissions are per vehicle-km."
+    },
+    {
+      "id": "IV.1",
+      "title": "Estimated Electricity Consumption per E-commerce Transaction Lifecycle Component",
+      "data": [
+        {
+          "component": "Payment (Visa/Mastercard)",
+          "estimatedEnergyConsumption": "0.00649",
+          "unit": "kWh"
+        },
+        {
+          "component": "Data Transfer (Fixed Network)",
+          "estimatedEnergyConsumption": "0.05",
+          "unit": "kWh/GB"
+        },
+        {
+          "component": "Data Transfer (Mobile Network)",
+          "estimatedEnergyConsumption": "0.12",
+          "unit": "kWh/GB"
+        },
+        {
+          "component": "Web Page Load (Mobile)",
+          "estimatedEnergyConsumption": "10 - 50+",
+          "unit": "Joules"
+        },
+        {
+          "component": "",
+          "estimatedEnergyConsumption": "~0.0027 - 0.0138+",
+          "unit": "Wh (Derived)"
+        },
+        {
+          "component": "Search Query (Traditional)",
+          "estimatedEnergyConsumption": "0.3",
+          "unit": "Wh"
+        },
+        {
+          "component": "Search Query (Generative AI)",
+          "estimatedEnergyConsumption": "2.9",
+          "unit": "Wh"
+        }
+      ]
+    },
+    {
+      "id": "IV.2",
+      "title": "Major Cloud Provider Data Center Efficiency & Carbon Footprint Indicators, 2023",
+      "data": [
+        {
+          "provider": "AWS",
+          "avgPUEGlobal": "1.15",
+          "renewableEnergyCFEMatched": "100% matched in 2023",
+          "reportedGHGEmissionTrend": "Not specified directly for total GHG trend"
+        },
+        {
+          "provider": "Microsoft Azure",
+          "avgPUEGlobal": "Not specified",
+          "renewableEnergyCFEMatched": ">19.8 GW contracted renewables; Aim 100% by 2025 / 100% zero-carbon by 2030",
+          "reportedGHGEmissionTrend": "Scope 1&2 ↓6.3%; Scope 3 ↑30.9% (FY23 vs 2020)"
+        },
+        {
+          "provider": "Google Cloud",
+          "avgPUEGlobal": "1.10",
+          "renewableEnergyCFEMatched": "64% CFE (Global Avg. 2023)",
+          "reportedGHGEmissionTrend": "Total GHG ↑13% YoY (2023)"
+        }
+      ]
+    },
+    {
+      "id": "V.1",
+      "title": "Estimated Annual Landfill Contribution from E-commerce Returned Goods (US), 2022",
+      "data": [
+        {
+          "item": "Returned Products Sent to Landfill (US)",
+          "value": ">9.5 billion lbs",
+          "unit": "~4.3 million metric tons"
+        },
+        {
+          "item": "CO₂ Emissions from E-commerce Returns (Global Estimate)",
+          "value": "Up to 24 million",
+          "unit": "Metric tons CO₂/year"
+        }
+      ]
+    },
+    {
+      "id": "V.2",
+      "title": "Disposition of Returned E-commerce Goods (Fashion & General, Europe)",
+      "data": [
+        {
+          "category": "Returned Clothing (Europe)",
+          "percentNotResoldToSecondaryConsumer": "22-44%",
+          "ofThoseNotResoldPercentRecycled": "~50% of the 22-44%",
+          "ofThoseNotResoldPercentLandfilled": "~25% of the 22-44%",
+          "ofThoseNotResoldPercentIncinerated": "~14% of the 22-44%"
+        },
+        {
+          "category": "General E-commerce (Europe)",
+          "percentNotResoldToSecondaryConsumer": "44%",
+          "ofThoseNotResoldPercentRecycled": "Not specified",
+          "ofThoseNotResoldPercentLandfilled": "Not specified",
+          "ofThoseNotResoldPercentIncinerated": "Not specified"
+        }
+      ]
+    },
+    {
+      "id": "V.3",
+      "title": "Estimated Degradation Timelines for Key E-commerce Packaging Materials",
+      "data": [
+        {
+          "material": "Cardboard",
+          "landfillEnvironmentAnaerobic": "Months to Years",
+          "marineEnvironment": "~2 Months",
+          "keyConsiderations": "Lignin persists; Methane generation in landfill"
+        },
+        {
+          "material": "LDPE Film",
+          "landfillEnvironmentAnaerobic": "~100-500+ Years",
+          "marineEnvironment": "10-20 to 100s-1000s Years",
+          "keyConsiderations": "Fragments into microplastics"
+        },
+        {
+          "material": "EPS Foam",
+          "landfillEnvironmentAnaerobic": "Up to 500+ Years",
+          "marineEnvironment": "~50+ Years",
+          "keyConsiderations": "Fragments into microplastics; Very persistent"
+        }
+      ]
+    },
+    {
+      "id": "VI.1",
+      "title": "E-commerce Sales Volume During Peak Shopping Events vs. Baseline (USD Billion, % Increase - Global, US), 2023-2024",
+      "data": [
+        {
+          "event": "Cyber 5 (Adobe Analytics)",
+          "region": "US",
+          "salesVolume": "41.1",
+          "yoyIncrease": "+8.2%",
+          "year": "2024"
+        },
+        {
+          "event": "- Cyber Monday (Adobe)",
+          "region": "US",
+          "salesVolume": "13.3",
+          "yoyIncrease": "+7.3%",
+          "year": "2024"
+        },
+        {
+          "event": "Cyber Week (Salesforce)",
+          "region": "Global",
+          "salesVolume": "314.9",
+          "yoyIncrease": "+6% (orders)",
+          "year": "2024"
+        },
+        {
+          "event": "- Black Friday (Salesforce)",
+          "region": "Global",
+          "salesVolume": "74.4",
+          "yoyIncrease": "+5%",
+          "year": "2024"
+        },
+        {
+          "event": "- Cyber Monday (Salesforce)",
+          "region": "Global",
+          "salesVolume": "49.7",
+          "yoyIncrease": "+2%",
+          "year": "2024"
+        },
+        {
+          "event": "- Cyber Week (Salesforce)",
+          "region": "US",
+          "salesVolume": "76.0",
+          "yoyIncrease": "+7% (orders)",
+          "year": "2024"
+        },
+        {
+          "event": "Amazon Prime Day",
+          "region": "Global",
+          "salesVolume": "12.9",
+          "yoyIncrease": "(vs 2022)",
+          "year": "2023"
+        },
+        {
+          "event": "Amazon Prime Day",
+          "region": "Global",
+          "salesVolume": "14.2",
+          "yoyIncrease": "+10.1%",
+          "year": "2024"
+        },
+        {
+          "event": "Holiday Season (Nov-Dec, NRF)",
+          "region": "US",
+          "salesVolume": "296.7 (Online)",
+          "yoyIncrease": "+8.6%",
+          "year": "2024"
+        },
+        {
+          "event": "Holiday Season (Nov-Dec, Salesforce)",
+          "region": "Global",
+          "salesVolume": "1200 (Online)",
+          "yoyIncrease": "+3%",
+          "year": "2024"
+        },
+        {
+          "event": "Holiday Season (Nov-Dec, Salesforce)",
+          "region": "US",
+          "salesVolume": "282 (Online)",
+          "yoyIncrease": "+4%",
+          "year": "2024"
+        }
+      ]
+    },
+    {
+      "id": "VII.1",
+      "title": "Projected Global E-commerce Environmental Footprint (Illustrative Metrics) under Various Growth Scenarios – 5, 10, and 25-Year Outlooks from 2025 Baseline",
+      "data": [
+        {
+          "environmentalMetric": "Total Logistics CO₂e",
+          "baseline2025": "X MMT CO₂e",
+          "projected2030_2pctGrowth": "X * (1.02)^5",
+          "projected2030_5pctGrowth": "X * (1.05)^5",
+          "projected2030_10pctGrowth": "X * (1.10)^5",
+          "projected2035_5pctGrowth": "X * (1.05)^10",
+          "projected2050_5pctGrowth": "X * (1.05)^25"
+        },
+        {
+          "environmentalMetric": "Total Packaging Waste (Plastic)",
+          "baseline2025": "Y MMT",
+          "projected2030_2pctGrowth": "Y * (1.02)^5",
+          "projected2030_5pctGrowth": "Y * (1.05)^5",
+          "projected2030_10pctGrowth": "Y * (1.10)^5",
+          "projected2035_5pctGrowth": "Y * (1.05)^10",
+          "projected2050_5pctGrowth": "Y * (1.05)^25"
+        },
+        {
+          "environmentalMetric": "Total Packaging Waste (Cardboard)",
+          "baseline2025": "Z MMT",
+          "projected2030_2pctGrowth": "Z * (1.02)^5",
+          "projected2030_5pctGrowth": "Z * (1.05)^5",
+          "projected2030_10pctGrowth": "Z * (1.10)^5",
+          "projected2035_5pctGrowth": "Z * (1.05)^10",
+          "projected2050_5pctGrowth": "Z * (1.05)^25"
+        },
+        {
+          "environmentalMetric": "Digital Infrastructure Energy Use",
+          "baseline2025": "W TWh",
+          "projected2030_2pctGrowth": "W * (1.02)^5",
+          "projected2030_5pctGrowth": "W * (1.05)^5",
+          "projected2030_10pctGrowth": "W * (1.10)^5",
+          "projected2035_5pctGrowth": "W * (1.05)^10",
+          "projected2050_5pctGrowth": "W * (1.05)^25"
+        }
+      ],
+      "notes": "X, Y, Z, W represent baseline values derived from Sections II, III, and IV. MMT = Million Metric Tons. TWh = Terawatt-hours."
+    }
+  ]
+}
