@@ -1,0 +1,229 @@
+/* cursor.css - Styling for custom cursor component */
+
+/* Hide default cursor when custom cursor is active (on non-touch devices) */
+body:not(.touch-device) {
+  cursor: none !important;
+}
+
+/*
+  It's often sufficient to set cursor: none on the body.
+  Targeting individual elements can be redundant if the body rule is effective.
+  However, this can be a fallback or for specific overrides if needed.
+*/
+body:not(.touch-device) a,
+body:not(.touch-device) button,
+body:not(.touch-device) [role="button"],
+body:not(.touch-device) input,
+body:not(.touch-device) .nav-link,
+body:not(.touch-device) .theme-toggle,
+body:not(.touch-device) .stat-card,
+body:not(.touch-device) .timeline-point {
+  cursor: none !important;
+}
+
+/* Custom cursor styling */
+.cursor-follower {
+  position: fixed;
+  /* JS will set top/left for the translate3d origin, or just rely on transform from 0,0 */
+  /* top: 0; */ /* Assuming JS positions from 0,0 with translate3d */
+  /* left: 0; */
+
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--color-primary-500); /* Ensure --color-primary-500 is defined */
+  border-radius: 50%;
+  pointer-events: none; /* Crucial: lets clicks pass through */
+  z-index: var(--z-cursor, 9999); /* Ensure --z-cursor is defined, or use a fallback */
+  
+  /*
+    Initial transform. The JS will override this with translate3d(mouseX, mouseY, 0) for positioning.
+    The -50%, -50% part is to center the cursor element on the mouse coordinates
+    IF top/left styles were being directly set to mouseX/mouseY.
+    Since JS uses translate3d for the actual positioning based on mouseX/mouseY,
+    this specific transform is mostly an initial setup.
+    The key is that the JS applies its transform for the smooth follow.
+  */
+  transform: translate(-50%, -50%); /* Centering based on its own dimensions, useful if JS sets left/top */
+                                     /* If JS only sets translate3d, this only applies if JS fails or before it starts */
+
+  /*
+    If your JS positions the cursor's top-left at mouseX, mouseY via its translate3d,
+    and you want the visual center of the cursor to be at mouseX, mouseY,
+    you'd typically have an inner element that applies scale/rotation,
+    or the JS would calculate: translate3d(mouseX - width/2, mouseY - height/2, 0).
+    The provided JS: cursorFollower.style.transform = `translate3d(${currentCursorX}px, ${currentCursorY}px, 0)`;
+    positions the top-left of the cursor. If currentCursorX/Y are raw mouse coords,
+    the visual center will be offset.
+    To use the -50%, -50% centering with the JS, the JS should be:
+    cursorFollower.style.left = currentCursorX + 'px';
+    cursorFollower.style.top = currentCursorY + 'px';
+    And the CSS transform would remain: transform: translate(-50%, -50%);
+    And then other state transforms are ADDED, e.g., transform: translate(-50%, -50%) scale(0.8);
+
+    For now, assuming the JS positions the top-left corner and the visual effect is acceptable,
+    or currentCursorX/Y in JS are already adjusted for centering.
+  */
+
+  transition: width 0.2s ease,
+              height 0.2s ease,
+              background-color 0.2s ease,
+              border 0.2s ease,
+              opacity 0.3s ease,
+              transform 0.1s ease; /* Added transform to base transition for smoother scale/etc changes */
+  mix-blend-mode: difference;
+  backdrop-filter: invert(0.2); /* May not be supported in all browsers e.g. Firefox */
+  will-change: transform, width, height, opacity; /* Added opacity */
+  opacity: 0; /* Start hidden, JS will make it visible */
+}
+
+/* Cursor states for different contexts */
+.cursor-expanded {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-width: 1.5px;
+  mix-blend-mode: normal; /* Override base mix-blend-mode */
+}
+
+.cursor-clicked {
+  /*
+    The JS applies translate3d(x,y,0) for positioning.
+    This class should only add the scaling effect.
+    Modern browsers will typically composite these transforms.
+  */
+  transform: scale(0.8); /* Scale is applied on top of JS positioning transform */
+  opacity: 0.8;
+  background-color: var(--color-primary-400); /* Ensure --color-primary-400 is defined */
+  /* Override transition for click effect to be faster if needed */
+  transition-property: transform, background-color, opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
+}
+
+.cursor-link {
+  border-color: var(--color-primary-300); /* Ensure --color-primary-300 is defined */
+  background-color: rgba(var(--color-primary-400-rgb, 99, 102, 241), 0.1); /* Ensure --color-primary-400-rgb is defined or provide fallback */
+}
+
+.cursor-button {
+  border-color: var(--color-accent-400); /* Ensure --color-accent-400 is defined */
+  border-width: 2px;
+}
+
+.cursor-nav {
+  width: 10px;
+  height: 10px;
+  border-width: 3px;
+  background-color: var(--color-primary-500);
+}
+
+.cursor-card {
+  border-radius: 8px;
+  /* Note: .cursor-expanded sets width/height to 40px. This will override.
+     If you want cards to be 20px, ensure .cursor-expanded is NOT also applied,
+     or make this more specific / use !important (last resort).
+     Or, remove width/height here if 40px from expanded is desired.
+  */
+  /* width: 20px; */ /* Consider if this should override .cursor-expanded size */
+  /* height: 20px; */
+  border-color: var(--color-primary-400);
+  background-color: rgba(var(--color-primary-400-rgb, 99, 102, 241), 0.2);
+}
+
+.cursor-accent {
+  border-color: var(--cursor-accent-color, var(--color-accent-500, #F59E0B)); /* Added one more fallback for --color-accent-500 */
+  background-color: rgba(var(--cursor-accent-color-rgb, 245, 158, 11), 0.2); /* Fallback for --cursor-accent-color-rgb */
+  mix-blend-mode: normal; /* Override base mix-blend-mode */
+}
+
+.cursor-media {
+  width: 32px;
+  height: 32px;
+  border-width: 1px;
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  mix-blend-mode: exclusion; /* Note: 'exclusion' can have strong visual effects */
+}
+
+/* Cursor states for API control */
+.cursor-loading {
+  width: 40px; /* Consistent with expanded */
+  height: 40px;
+  border-width: 3px;
+  border-style: solid; /* Ensure border-style is set if only color changes */
+  border-color: var(--color-primary-300);
+  border-top-color: var(--color-primary-600); /* Ensure these vars are defined */
+  animation: cursor-loading-animation 0.8s linear infinite;
+  background-color: transparent; /* Important for spinner visibility */
+  border-radius: 50%; /* Keep it round for spinning */
+}
+
+.cursor-success {
+  width: 40px;
+  height: 40px;
+  border-color: var(--color-success-500); /* Ensure --color-success-500 is defined */
+  background-color: rgba(var(--color-success-500-rgb, 16, 185, 129), 0.2); /* Fallback for --color-success-500-rgb */
+  /* Optional: Add a checkmark icon using ::after */
+}
+
+.cursor-error {
+  width: 40px;
+  height: 40px;
+  border-color: var(--color-error-500); /* Ensure --color-error-500 is defined */
+  background-color: rgba(var(--color-error-500-rgb, 239, 68, 68), 0.2); /* Fallback for --color-error-500-rgb */
+  /* Optional: Add a cross icon using ::before and ::after */
+}
+
+/* Text on cursor */
+.cursor-with-text {
+  /* When text is active, these define the cursor's appearance */
+  width: auto; /* Let content dictate width */
+  min-width: 80px;
+  height: 30px;
+  padding: 0 12px; /* Adjusted padding slightly */
+  display: flex; /* Enables align-items and justify-content */
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px; /* Pill shape */
+  background-color: var(--color-bg-primary, #333); /* Ensure var is defined, provide fallback */
+  color: var(--color-text-primary, #fff); /* Ensure var is defined, provide fallback */
+  font-size: var(--text-xs, 12px); /* Ensure var is defined, provide fallback */
+  border: 1px solid var(--color-border, #555); /* Ensure var is defined, provide fallback */
+  white-space: nowrap; /* Prevent text wrapping */
+  mix-blend-mode: normal !important; /* Text should usually be clearly readable */
+  opacity: 1 !important; /* Ensure text container is fully visible */
+}
+
+.cursor-with-text::after { /* Using ::after to hold the text */
+  content: attr(data-text);
+  display: inline; /* Or block, depending on desired layout within the flex container */
+}
+
+/* Animations */
+@keyframes cursor-loading-animation { /* Renamed to avoid conflict if cursor-loading is a class name elsewhere */
+  0% {
+    transform: rotate(0deg); /* Only rotate. Positioning is handled by JS. */
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive behavior - hide custom cursor on small screens / potential touch devices */
+@media (max-width: 768px) {
+  /* This rule correctly hides the custom cursor. */
+  .cursor-follower {
+    display: none !important; /* Ensure it's hidden */
+  }
+  
+  /* These rules restore default cursor behavior on the body and interactive elements. */
+  body,
+  body.touch-device { /* Ensure touch-device also gets auto cursor if JS adds that class */
+    cursor: auto !important;
+  }
+  
+  a, button, input, .nav-link, .theme-toggle {
+    cursor: pointer !important; /* Or 'auto' if you prefer OS default */
+  }
+}

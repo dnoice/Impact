@@ -1,0 +1,337 @@
+/* variables.css - Design system tokens for the E-Commerce Environmental Impact Dashboard
+ * This file establishes all design variables used throughout the application,
+ * enabling consistent theming, dark/light mode support, and visual coherence.
+ */
+
+:root {
+  /*
+   * COLORS
+   * Primary color system with 9-step scales for maximum flexibility
+   * Each color has shades from 50 (lightest) to 900 (darkest)
+   */
+
+  /* Primary colors - blues for data visualization and primary UI */
+  --color-primary-50: #eef2ff; /* very pale blue */
+  --color-primary-100: #e0e7ff; /* very soft blue */
+  --color-primary-200: #c7d2fe; /* pale phthalo blue */
+  --color-primary-300: #a5b4fc; /* pastel blue */
+  --color-primary-400: #818cf8; /* lavender blue shadow */
+  --color-primary-500: #6366f1; /* Base primary color - blue hepatica */
+  --color-primary-600: #4f46e5; /* blue magenta */
+  --color-primary-700: #4338ca; /* blurple */
+  --color-primary-800: #3730a3; /* purple cabbage */
+  --color-primary-900: #312e81; /* cosmic cobalt */
+
+  /* Accent colors - oranges/ambers for highlights and attention */
+  --color-accent-50: #fffbeb; /* pale nectar */
+  --color-accent-100: #fef3c7; /* apricot cream */
+  --color-accent-200: #fde68a; /* golden sand */
+  --color-accent-300: #fcd34d; /* ripe mango */
+  --color-accent-400: #fbbf24; /* amber glow */
+  --color-accent-500: #f59e0b; /* Base accent color - vivid orange */
+  --color-accent-600: #d97706; /* burnt sienna */
+  --color-accent-700: #b45309; /* russet orange */
+  --color-accent-800: #92400e; /* warm bronze */
+  --color-accent-900: #78350f; /* deep umber */
+
+  /* Success/positive colors - greens */
+  --color-success-50: #ecfdf5; /* mint frost */
+  --color-success-100: #d1fae5; /* spring dew */
+  --color-success-200: #a7f3d0; /* light spearmint */
+  --color-success-300: #6ee7b7; /* jade green */
+  --color-success-400: #34d399; /* shamrock green */
+  --color-success-500: #10b981; /* Base success color - vibrant kelly */
+  --color-success-600: #059669; /* forest shade */
+  --color-success-700: #047857; /* deep emerald */
+  --color-success-800: #065f46; /* hunter green */
+  --color-success-900: #064e3b; /* dark ivy */
+
+  /* Warning colors - yellows (same hex/names as Accent) */
+  --color-warning-50: #fffbeb; /* pale nectar */
+  --color-warning-100: #fef3c7; /* apricot cream */
+  --color-warning-200: #fde68a; /* golden sand */
+  --color-warning-300: #fcd34d; /* ripe mango */
+  --color-warning-400: #fbbf24; /* amber glow */
+  --color-warning-500: #f59e0b; /* Base warning color - vivid orange */
+  --color-warning-600: #d97706; /* burnt sienna */
+  --color-warning-700: #b45309; /* russet orange */
+  --color-warning-800: #92400e; /* warm bronze */
+  --color-warning-900: #78350f; /* deep umber */
+
+  /* Error/danger colors - reds */
+  --color-error-50: #fef2f2; /* rose water */
+  --color-error-100: #fee2e2; /* cherry blossom */
+  --color-error-200: #fecaca; /* soft coral */
+  --color-error-300: #fca5a5; /* candy apple */
+  --color-error-400: #f87171; /* poppy red */
+  --color-error-500: #ef4444; /* Base error color - crimson alert */
+  --color-error-600: #dc2626; /* fire brick */
+  --color-error-700: #b91c1c; /* rich maroon */
+  --color-error-800: #991b1b; /* oxblood red */
+  --color-error-900: #7f1d1d; /* deep burgundy */
+
+  /* Info colors - light blues */
+  --color-info-50: #ecfeff; /* polar ice */
+  --color-info-100: #cffafe; /* baby blue sky */
+  --color-info-200: #a5f3fc; /* arctic aqua */
+  --color-info-300: #67e8f9; /* electric cyan */
+  --color-info-400: #22d3ee; /* vibrant turquoise */
+  --color-info-500: #06b6d4; /* Base info color - cerulean splash */
+  --color-info-600: #0891b2; /* deep teal */
+  --color-info-700: #0e7490; /* ocean depth */
+  --color-info-800: #155e75; /* twilight blue */
+  --color-info-900: #164e63; /* midnight teal */
+
+  /* Neutral colors - grays for text, backgrounds, borders */
+  --color-gray-50: #f9fafb; /* alabaster */
+  --color-gray-100: #f3f4f6; /* silver sand */
+  --color-gray-200: #e5e7eb; /* light concrete */
+  --color-gray-300: #d1d5db; /* cool stone */
+  --color-gray-400: #9ca3af; /* cadet gray */
+  --color-gray-500: #6b7280; /* slate gray (Base neutral) */
+  --color-gray-600: #4b5563; /* gunmetal gray */
+  --color-gray-700: #374151; /* charcoal gray */
+  --color-gray-800: #1f2937; /* dark asphalt */
+  --color-gray-900: #111827; /* rich black */
+
+  /*
+   * SEMANTIC COLOR ASSIGNMENTS
+   * These map our color scales to functional uses throughout the app
+   * This level of abstraction allows for easier theme changes
+   */
+
+  /* Light theme assignments (default) */
+  --color-bg-primary: var(--color-gray-50); /* alabaster */
+  --color-bg-secondary: var(--color-gray-100); /* silver sand */
+  --color-bg-tertiary: var(--color-gray-200); /* light concrete */
+  --color-bg-elevated: #ffffff; /* white */
+
+  --color-text-primary: var(--color-gray-900); /* rich black */
+  --color-text-secondary: var(--color-gray-700); /* charcoal gray */
+  --color-text-tertiary: var(--color-gray-500); /* slate gray */
+  --color-text-inverted: var(--color-gray-50); /* alabaster */
+
+  --color-border-light: var(--color-gray-200); /* light concrete */
+  --color-border: var(--color-gray-300); /* cool stone */
+  --color-border-dark: var(--color-gray-400); /* cadet gray */
+
+  --color-shadow-sm: rgba(0, 0, 0, 0.05); /* translucent black shadow (extra light) */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* translucent black shadow (light) */
+  --color-shadow-md: rgba(0, 0, 0, 0.15); /* translucent black shadow (medium) */
+  --color-shadow-lg: rgba(0, 0, 0, 0.2); /* translucent black shadow (large) */
+
+  /* Special effect colors */
+  --color-glass-effect: rgba(255, 255, 255, 0.25); /* frosted white glass */
+  --color-glass-border: rgba(255, 255, 255, 0.18); /* sheer white border */
+  --color-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.75)); /* light subtle white gradient */
+
+  /* Visualization palette for charts and graphs */
+  --color-viz-1: var(--color-primary-500); /* blue hepatica */
+  --color-viz-2: var(--color-accent-500); /* vivid orange */
+  --color-viz-3: var(--color-success-500); /* vibrant kelly */
+  --color-viz-4: var(--color-info-500); /* cerulean splash */
+  --color-viz-5: var(--color-warning-500); /* vivid orange */
+  --color-viz-6: var(--color-error-500); /* crimson alert */
+  --color-viz-7: #8b5cf6; /* vibrant purple */
+  --color-viz-8: #ec4899; /* bright pink */
+
+  /*
+   * TYPOGRAPHY
+   * Font families, sizes, weights and line heights
+   */
+
+  /* Font families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Primary font stack */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /* Monospace font stack */
+
+  /* Type scale (rem-based) - works from smallest to largest */
+  --text-xs: 0.75rem;   /* 12px text size */
+  --text-sm: 0.875rem;  /* 14px text size */
+  --text-base: 1rem;    /* 16px text size (default) */
+  --text-md: 1.125rem;  /* 18px text size */
+  --text-lg: 1.25rem;   /* 20px text size */
+  --text-xl: 1.5rem;    /* 24px text size */
+  --text-2xl: 1.875rem; /* 30px text size */
+  --text-3xl: 2.25rem;  /* 36px text size */
+  --text-4xl: 3rem;     /* 48px text size */
+  --text-5xl: 3.75rem;  /* 60px text size */
+
+  /* Font weights */
+  --font-light: 300;    /* Light font weight */
+  --font-normal: 400;   /* Normal font weight */
+  --font-medium: 500;   /* Medium font weight */
+  --font-semibold: 600; /* Semibold font weight */
+  --font-bold: 700;     /* Bold font weight */
+
+  /* Line heights */
+  --leading-none: 1;        /* No extra leading */
+  --leading-tight: 1.25;    /* Tight line height */
+  --leading-snug: 1.375;    /* Snug line height */
+  --leading-normal: 1.5;    /* Normal line height */
+  --leading-relaxed: 1.625; /* Relaxed line height */
+  --leading-loose: 2;       /* Loose line height */
+
+  /* Letter spacing */
+  --tracking-tighter: -0.05em;  /* Tighter letter spacing */
+  --tracking-tight: -0.025em;   /* Tight letter spacing */
+  --tracking-normal: 0em;       /* Normal letter spacing */
+  --tracking-wide: 0.025em;     /* Wide letter spacing */
+  --tracking-wider: 0.05em;     /* Wider letter spacing */
+  --tracking-widest: 0.1em;     /* Widest letter spacing */
+
+  /*
+   * SPACING
+   * Consistent spacing values for margins, padding, and gaps
+   */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+  --space-40: 10rem;    /* 160px */
+  --space-48: 12rem;    /* 192px */
+  --space-56: 14rem;    /* 224px */
+  --space-64: 16rem;    /* 256px */
+
+  /*
+   * LAYOUT
+   * Container and component sizing
+   */
+  --container-sm: 640px;  /* Small container width */
+  --container-md: 768px;  /* Medium container width */
+  --container-lg: 1024px; /* Large container width */
+  --container-xl: 1280px; /* Extra large container width */
+  --container-2xl: 1536px;/* 2X large container width */
+
+  /*
+   * BORDERS & ROUNDING
+   * Border widths and border radius values
+   */
+  --border-width-thin: 1px;   /* Thin border width */
+  --border-width-medium: 2px; /* Medium border width */
+  --border-width-thick: 3px;  /* Thick border width */
+
+  --radius-sm: 0.125rem;  /* 2px border radius */
+  --radius-md: 0.25rem;   /* 4px border radius */
+  --radius-lg: 0.5rem;    /* 8px border radius */
+  --radius-xl: 0.75rem;   /* 12px border radius */
+  --radius-2xl: 1rem;     /* 16px border radius */
+  --radius-3xl: 1.5rem;   /* 24px border radius */
+  --radius-full: 9999px;  /* Full (pill) border radius */
+
+  /*
+   * SHADOWS
+   * Box-shadow values for elevation effects
+   */
+  --shadow-sm: 0 1px 2px 0 var(--color-shadow-sm); /* Small shadow effect */
+  --shadow: 0 1px 3px 0 var(--color-shadow), 0 1px 2px -1px var(--color-shadow); /* Standard shadow effect */
+  --shadow-md: 0 4px 6px -1px var(--color-shadow), 0 2px 4px -2px var(--color-shadow); /* Medium shadow effect */
+  --shadow-lg: 0 10px 15px -3px var(--color-shadow-md), 0 4px 6px -4px var(--color-shadow); /* Large shadow effect */
+  --shadow-xl: 0 20px 25px -5px var(--color-shadow-md), 0 8px 10px -6px var(--color-shadow); /* Extra large shadow effect */
+  --shadow-2xl: 0 25px 50px -12px var(--color-shadow-lg); /* 2X large shadow effect */
+  --shadow-inner: inset 0 2px 4px 0 var(--color-shadow); /* Inner shadow effect */
+
+  /*
+   * ANIMATIONS
+   * Transition durations and easing functions
+   */
+  --transition-fastest: 50ms;  /* Fastest transition duration */
+  --transition-fast: 100ms;    /* Fast transition duration */
+  --transition-normal: 200ms;  /* Normal transition duration */
+  --transition-slow: 300ms;    /* Slow transition duration */
+  --transition-slowest: 500ms; /* Slowest transition duration */
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1); /* Default easing function */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);       /* Ease-in easing function */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);      /* Ease-out easing function */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* Ease-in-out easing function */
+
+  /*
+   * Z-INDEX
+   * Z-index scale to manage stacking contexts
+   */
+  --z-negative: -1;     /* Negative z-index */
+  --z-base: 0;          /* Base z-index */
+  --z-elevated: 10;     /* Elevated content z-index */
+  --z-sticky: 100;      /* Sticky elements z-index */
+  --z-navigation: 200;  /* Navigation elements z-index */
+  --z-dropdown: 300;    /* Dropdown menus z-index */
+  --z-modal: 400;       /* Modal dialogs z-index */
+  --z-popover: 500;     /* Popover elements z-index */
+  --z-tooltip: 600;     /* Tooltip elements z-index */
+  --z-toast: 700;       /* Toast notifications z-index */
+  --z-cursor: 800;      /* Custom cursor z-index */
+  --z-highest: 9999;    /* Highest z-index for critical overlays */
+
+  /*
+   * RESPONSIVE BREAKPOINTS
+   * For media queries
+   */
+  --breakpoint-sm: 640px;  /* Small breakpoint (e.g., mobile landscape) */
+  --breakpoint-md: 768px;  /* Medium breakpoint (e.g., tablets) */
+  --breakpoint-lg: 1024px; /* Large breakpoint (e.g., small desktops) */
+  --breakpoint-xl: 1280px; /* Extra large breakpoint (e.g., desktops) */
+  --breakpoint-2xl: 1536px;/* 2X large breakpoint (e.g., large desktops) */
+}
+
+/*
+ * DARK THEME OVERRIDES
+ * Applied when [data-theme="dark"] is set on the html element
+ */
+[data-theme="dark"] {
+  /* Background colors */
+  --color-bg-primary: var(--color-gray-900); /* rich black */
+  --color-bg-secondary: var(--color-gray-800); /* dark asphalt */
+  --color-bg-tertiary: var(--color-gray-700); /* charcoal gray */
+  --color-bg-elevated: var(--color-gray-800); /* dark asphalt */
+
+  /* Text colors */
+  --color-text-primary: var(--color-gray-50); /* alabaster */
+  --color-text-secondary: var(--color-gray-300); /* cool stone */
+  --color-text-tertiary: var(--color-gray-400); /* cadet gray */
+
+  /* Border colors */
+  --color-border-light: var(--color-gray-700); /* charcoal gray */
+  --color-border: var(--color-gray-600); /* gunmetal gray */
+  --color-border-dark: var(--color-gray-500); /* slate gray */
+
+  /* Shadow colors (darker and more subtle in dark mode) */
+  --color-shadow-sm: rgba(0, 0, 0, 0.2); /* translucent black shadow (extra light, dark theme) */
+  --color-shadow: rgba(0, 0, 0, 0.3); /* translucent black shadow (light, dark theme) */
+  --color-shadow-md: rgba(0, 0, 0, 0.4); /* translucent black shadow (medium, dark theme) */
+  --color-shadow-lg: rgba(0, 0, 0, 0.5); /* translucent black shadow (large, dark theme) */
+
+  /* Special effect colors */
+  --color-glass-effect: rgba(0, 0, 0, 0.25); /* frosted black glass */
+  --color-glass-border: rgba(255, 255, 255, 0.08); /* ultra sheer white border (dark) */
+  --color-card-gradient: linear-gradient(145deg, rgba(31, 41, 55, 0.95), rgba(31, 41, 55, 0.75)); /* dark subtle asphalt gradient */
+
+  /* Visualization colors - slightly adjusted for dark mode */
+  --color-viz-1: var(--color-primary-400); /* lavender blue shadow */
+  --color-viz-2: var(--color-accent-400); /* amber glow */
+  --color-viz-3: var(--color-success-400); /* shamrock green */
+  --color-viz-4: var(--color-info-400); /* vibrant turquoise */
+  --color-viz-5: var(--color-warning-400); /* amber glow */
+  --color-viz-6: var(--color-error-400); /* poppy red */
+}
+
+/* Utility class for debugging variables */
+.var-debug {
+  --debug-color: var(--color-text-primary); /* Debug text color, inherits based on theme */
+  background-color: var(--color-bg-primary); /* Debug background color, inherits based on theme */
+  color: var(--debug-color);                 /* Uses the defined debug text color */
+  padding: var(--space-4);                   /* Standard padding */
+  font-family: var(--font-mono);             /* Monospace font for debug info */
+  font-size: var(--text-sm);                 /* Small text size for debug info */
+  border-radius: var(--radius-md);           /* Medium border radius */
+  border: var(--border-width-thin) solid var(--color-border); /* Thin border, inherits based on theme */
+  box-shadow: var(--shadow-md);              /* Medium shadow, inherits based on theme */
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive dashboard visualizing the environmental impact of e-commerce">
+    <title>EcoImpact - E-Commerce Environmental Impact Dashboard</title>
+    
+    <!-- Preload fonts for performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    
+    <!-- CSS imports - core foundational styles -->
+    <link rel="stylesheet" href="css/components/reset.css">
+    <link rel="stylesheet" href="css/components/variables.css">
+    <link rel="stylesheet" href="css/components/typography.css">
+    <link rel="stylesheet" href="css/components/layout.css">
+    
+    <!-- Component-specific styles -->
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/theme-toggle.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/charts.css">
+    <link rel="stylesheet" href="css/components/timeline.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/utils/animations.css">
+    
+    <!-- Main stylesheet for global styles -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Deferred non-critical CSS -->
+    <link rel="preload" href="css/components/cursor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/components/cursor.css"></noscript>
+</head>
+<body>
+    <!-- Custom cursor element -->
+    <div class="cursor-follower"></div>
+    
+    <!-- Navigation Header -->
+    <header class="primary-header">
+        <div class="container">
+            <nav class="primary-navigation">
+                <a href="#" class="logo">
+                    <span class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2Z" stroke="var(--color-primary-500)" stroke-width="2"/>
+                            <path d="M16 7V16L21 21" stroke="var(--color-primary-500)" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">EcoImpact</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#overview" class="nav-link active">Overview</a></li>
+                    <li><a href="#packaging" class="nav-link">Packaging</a></li>
+                    <li><a href="#transport" class="nav-link">Transport</a></li>
+                    <li><a href="#waste" class="nav-link">Waste</a></li>
+                    <li><a href="#projections" class="nav-link">Projections</a></li>
+                </ul>
+                
+                <!-- Theme toggle component -->
+                <div class="theme-toggle" role="switch" aria-checked="false" tabindex="0">
+                    <div class="theme-toggle-icons">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 20V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 12L2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M22 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M19.778 4.22183L17.6569 6.34315" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6.34309 17.6569L4.22183 19.7782" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M19.778 19.7782L17.6569 17.6569" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6.34309 6.34315L4.22183 4.22183" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="theme-toggle-indicator"></div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">The Unseen Cost of <span class="accent">E-Commerce</span></h1>
+                    <p class="hero-subtitle">Visualizing the environmental impact of online shopping through data-driven insights</p>
+                    <p class="hero-description">Every click, every package, every delivery has an environmental footprint. Our dashboard reveals the hidden impact of e-commerce on our planet through interactive visualizations and projections.</p>
+                    <div class="hero-cta">
+                        <a href="#overview" class="btn btn-primary">Explore the Data</a>
+                        <a href="#methodology" class="btn btn-outline">Our Methodology</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="split-visual">
+                        <div class="visual-left">
+                            <!-- Clean e-commerce experience side -->
+                            <div class="digital-grid"></div>
+                            <!-- This will be enhanced with actual imagery later -->
+                            <div class="ecommerce-icons">
+                                <!-- Placeholder for shopping cart, device icons etc. -->
+                            </div>
+                        </div>
+                        <div class="visual-right">
+                            <!-- Environmental impact side -->
+                            <div class="impact-visual"></div>
+                            <!-- This will be enhanced with actual impact imagery later -->
+                        </div>
+                        <div class="flow-particles"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Overview section -->
+        <section id="overview" class="section overview-section">
+            <div class="container">
+                <h2 class="section-title">Global E-Commerce Impact</h2>
+                <p class="section-description">The explosive growth of online shopping has profound environmental consequences, from packaging waste to carbon emissions. These key metrics reveal the scale of the challenge.</p>
+                
+                <div class="stat-cards staggered-fade-in">
+                    <!-- These cards will be dynamically populated via JavaScript -->
+                </div>
+                
+                <div class="chart-wrapper fade-in">
+                    <h3>Global E-Commerce Growth</h3>
+                    <p class="chart-description">Annual e-commerce sales have grown to $6.86 trillion in 2025, with continued increases projected through 2027. This rapid growth directly drives environmental impacts.</p>
+                    <div id="growth-chart" class="chart"></div>
+                </div>
+                
+                <div class="impact-categories fade-in">
+                    <h3>Primary Environmental Impacts</h3>
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon packaging-icon"></div>
+                            <h4>Packaging Waste</h4>
+                            <p>E-commerce operations used approximately 3.2 billion pounds of plastic packaging in 2023, with only a small percentage recycled.</p>
+                            <a href="#packaging" class="impact-link">Explore packaging impact →</a>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon transport-icon"></div>
+                            <h4>Transportation Emissions</h4>
+                            <p>Last-mile delivery alone produced over 65 million tonnes of CO₂ in 2022, projected to reach 120 million tonnes by 2030.</p>
+                            <a href="#transport" class="impact-link">Explore transport impact →</a>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon returns-icon"></div>
+                            <h4>Returns & Waste</h4>
+                            <p>Approximately 9.5 billion pounds of returned products were sent to landfill in 2022, with 44% of returned items never resold.</p>
+                            <a href="#waste" class="impact-link">Explore waste impact →</a>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon digital-icon"></div>
+                            <h4>Digital Infrastructure</h4>
+                            <p>Global data centers consumed approximately 240-340 TWh of electricity in 2022, with e-commerce driving significant usage.</p>
+                            <a href="#infrastructure" class="impact-link">Explore digital impact →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Packaging section -->
+        <section id="packaging" class="section packaging-section">
+            <div class="container">
+                <h2 class="section-title">Packaging Waste</h2>
+                <p class="section-description">E-commerce generates millions of tons of packaging waste annually, much of which is not recycled.</p>
+                
+                <div class="chart-wrapper fade-in">
+                    <h3>E-commerce Packaging Materials</h3>
+                    <p class="chart-description">Annual usage of plastic, cardboard, and foam packaging materials directly attributable to online shopping.</p>
+                    <div id="packaging-chart" class="chart"></div>
+                </div>
+                
+                <div class="packaging-stats grid-cols-3 fade-in">
+                    <div class="stat-box">
+                        <h4>1.45M</h4>
+                        <p>Metric tons of plastic packaging used in 2023</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>165M</h4>
+                        <p>Metric tons of corrugated board consumed in 2023</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>40-60%</h4>
+                        <p>Average empty space in e-commerce shipping boxes</p>
+                    </div>
+                </div>
+                
+                <div class="packaging-comparison fade-in">
+                    <h3>Online vs. Traditional Retail</h3>
+                    <p>Online shopping generates 4.8 times more packaging waste per item compared to traditional retail shopping.</p>
+                    <!-- Comparison visualization will go here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Transport section -->
+        <section id="transport" class="section transport-section">
+            <div class="container">
+                <h2 class="section-title">Transportation Emissions</h2>
+                <p class="section-description">Delivery vehicles and freight transport represent a significant carbon footprint of online shopping.</p>
+                
+                <div class="transport-cards fade-in">
+                    <!-- Transport mode cards will go here -->
+                </div>
+                
+                <div class="chart-wrapper fade-in">
+                    <h3>Last-Mile Delivery Emissions</h3>
+                    <p class="chart-description">Carbon footprint of package delivery from local centers to customers' homes.</p>
+                    <div id="emissions-chart" class="chart"></div>
+                </div>
+                
+                <div class="emissions-map-container fade-in">
+                    <h3>Global Shipping Routes</h3>
+                    <p class="map-description">Major international freight routes and their associated emissions intensities.</p>
+                    <div id="emissions-map" class="map-visualization"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Waste section -->
+        <section id="waste" class="section waste-section">
+            <div class="container">
+                <h2 class="section-title">Product Lifecycle & Returns</h2>
+                <p class="section-description">The environmental impact of returned goods and packaging degradation over time.</p>
+                
+                <div class="returns-stats grid-cols-3 fade-in">
+                    <div class="stat-box">
+                        <h4>44%</h4>
+                        <p>Of returned items are never resold to another consumer</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>4.3M</h4>
+                        <p>Metric tons of returned products sent to landfill in 2022</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>30%</h4>
+                        <p>Higher fashion return rates for online vs. in-store purchases</p>
+                    </div>
+                </div>
+                
+                <div class="waste-timeline fade-in">
+                    <h3>Material Degradation Timeline</h3>
+                    <p class="timeline-description">How long common e-commerce packaging materials persist in the environment.</p>
+                    <div class="wide-image">
+                        <!-- This will be populated with our interactive timeline visualization -->
+                    </div>
+                </div>
+                
+                <div class="return-chart-wrapper fade-in">
+                    <h3>Product Returns by Category</h3>
+                    <p class="chart-description">Return rates across different product categories in e-commerce.</p>
+                    <div id="return-rates-chart" class="chart"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projections section -->
+        <section id="projections" class="section projections-section">
+            <div class="container">
+                <h2 class="section-title">Future Projections</h2>
+                <p class="section-description">Environmental impact scenarios based on different e-commerce growth rates.</p>
+                
+                <div class="growth-toggles">
+                    <button class="growth-toggle" data-rate="2">2% Growth</button>
+                    <button class="growth-toggle active" data-rate="5">5% Growth</button>
+                    <button class="growth-toggle" data-rate="10">10% Growth</button>
+                </div>
+                
+                <div id="projection-chart" class="chart"></div>
+                
+                <div class="scenarios fade-in">
+                    <h3>Impact Mitigation Scenarios</h3>
+                    <div class="scenario-cards">
+                        <div class="scenario-card">
+                            <h4>Business as Usual</h4>
+                            <p>Current trends continue without significant intervention.</p>
+                            <ul class="scenario-impacts">
+                                <li>+3.11M tons plastic waste by 2027</li>
+                                <li>+120M tons CO₂ from last-mile by 2030</li>
+                                <li>+60% energy consumption by 2030</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="scenario-card">
+                            <h4>Transition Scenario</h4>
+                            <p>Moderate shift to sustainable e-commerce practices.</p>
+                            <ul class="scenario-impacts">
+                                <li>40% reduction in plastic waste vs BAU</li>
+                                <li>50% reduction in emissions vs BAU</li>
+                                <li>30% reduction in energy impact vs BAU</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="scenario-card">
+                            <h4>Radical Transformation</h4>
+                            <p>Complete reimagining of e-commerce practices.</p>
+                            <ul class="scenario-impacts">
+                                <li>90% reduction in plastic waste vs BAU</li>
+                                <li>80% reduction in emissions vs BAU</li>
+                                <li>70% reduction in energy impact vs BAU</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Methodology section -->
+        <section id="methodology" class="section methodology-section">
+            <div class="container">
+                <h2 class="section-title">Our Methodology</h2>
+                <p class="section-description">How we collected and analyzed the data behind these visualizations.</p>
+                
+                <div class="methodology-content">
+                    <p>This dashboard presents data collected from authoritative sources including industry reports (Pitney Bowes parcel index, Statista), academic and government studies (OECD, EPA, IPCC), company sustainability disclosures (Amazon sustainability report, Oceana analysis), and research organizations.</p>
+                    
+                    <p>Calculations for emissions estimates follow standardized methodologies from the IPCC and other environmental research bodies. Packaging estimates are derived from industry data and peer-reviewed studies on material flows and waste generation.</p>
+                    
+                    <p>Projections are based on compound annual growth rate (CAGR) models applied to verified baseline data, with scenarios reflecting different possible growth trajectories.</p>
+                    
+                    <div class="data-sources">
+                        <h3>Key Data Sources</h3>
+                        <ul class="source-list">
+                            <li>Pitney Bowes Parcel Shipping Index (2022-2024)</li>
+                            <li>OECD Policy Scenarios for Eliminating Plastic Pollution</li>
+                            <li>IPCC Assessment Reports on Transport Emissions</li>
+                            <li>EPA Waste Characterization Studies</li>
+                            <li>Company Sustainability Reports (Amazon, Walmart, Alibaba)</li>
+                            <li>Academic Research on E-commerce Environmental Impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-branding">
+                <a href="#" class="footer-logo">EcoImpact</a>
+                <p>Visualizing the environmental impact of e-commerce to raise awareness and encourage more sustainable practices.</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 3.01006C22.0424 3.68553 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 22.6608 4.40277 23 3.01006Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 19C4.7 20.4 4.7 16.5 3 16M15 21V17.5C15 16.5 15.1 16.1 14.5 15.5C17.3 15.2 20 14.1 20 9.49995C19.9988 8.30492 19.5325 7.15708 18.7 6.29995C19.0905 5.26252 19.0545 4.11983 18.6 3.09995C18.6 3.09995 17.5 2.79995 15.1 4.39995C13.0672 3.87054 10.9328 3.87054 8.9 4.39995C6.5 2.79995 5.4 3.09995 5.4 3.09995C4.94548 4.11983 4.90953 5.26252 5.3 6.29995C4.46745 7.15708 4.00122 8.30492 4 9.49995C4 14.1 6.7 15.2 9.5 15.5C8.9 16.1 8.9 16.7 9 17.5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="eco-certified">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 18C18.2091 18 20 16.2091 20 14C20 11.7909 18.2091 10 16 10C13.7909 10 12 11.7909 12 14C12 16.2091 13.7909 18 16 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 9.17001C12.5 8.00001 13.5 7.00001 15 7.00001C17.1 7.00001 19 8.70001 19 10.9C19 12.5 17.8 13.9 16.3 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.8 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21H16.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Carbon-neutral website</span>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#packaging">Packaging</a></li>
+                        <li><a href="#transport">Transport</a></li>
+                        <li><a href="#waste">Waste</a></li>
+                        <li><a href="#projections">Projections</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-sources">
+                    <h4>Sources</h4>
+                    <ul>
+                        <li><a href="https://www.oecd.org/environment/" target="_blank" rel="noopener">OECD Reports</a></li>
+                        <li><a href="https://www.ipcc.ch/reports/" target="_blank" rel="noopener">IPCC Data</a></li>
+                        <li><a href="https://www.epa.gov/research" target="_blank" rel="noopener">EPA Studies</a></li>
+                        <li><a href="#methodology">Industry Research</a></li>
+                        <li><a href="#methodology">Academic Papers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-subscribe">
+                    <h4>Stay Informed</h4>
+                    <p>Get updates on e-commerce sustainability research</p>
+                    <form class="subscribe-form" action="#" method="post">
+                        <input type="email" class="subscribe-input" placeholder="Your email" aria-label="Email address">
+                        <button type="submit" class="subscribe-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoImpact Dashboard. Data updated May 2025.</p>
+            <p>For research and educational purposes only.</p>
+        </div>
+    </div>
+</footer>
+    
+    <!-- JavaScript imports -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

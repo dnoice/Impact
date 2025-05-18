@@ -1,0 +1,3 @@
+# Visualizations Directory
+
+This subdirectory contains visualizations-specific files for the tests components of the E-Commerce Environmental Impact Dashboard.

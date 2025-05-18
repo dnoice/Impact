@@ -1,0 +1,225 @@
+/* reset.css - components stylesheet component */
+/* reset.css - Normalizes browser defaults and establishes baseline styles
+ * Based on modern CSS reset best practices for web applications
+ */
+
+/* 
+ * Box sizing rules
+ * Apply border-box to all elements for more predictable sizing
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 
+ * Remove default margin and padding
+ * Ensure consistent starting point across browsers
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+ * Root and body defaults
+ * Set core body defaults and prevent horizontal scrolling
+ */
+html {
+  /* Use % to respect user's browser settings */
+  font-size: 100%;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  text-rendering: optimizeSpeed;
+  line-height: var(--leading-normal, 1.5);
+  font-family: var(--font-primary, system-ui, sans-serif);
+  font-size: var(--text-base, 1rem);
+  color: var(--color-text-primary, #111827);
+  background-color: var(--color-bg-primary, #f9fafb);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 
+ * Media elements
+ * Make images, videos, canvas and svgs easier to work with
+ */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+/* 
+ * Typography
+ * Default styles for headings, paragraphs and text formatting
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-bold, 700);
+  line-height: var(--leading-tight, 1.25);
+  color: var(--color-text-primary, #111827);
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--text-3xl, 2.25rem);
+  margin-bottom: var(--space-6, 1.5rem);
+}
+
+h2 {
+  font-size: var(--text-2xl, 1.875rem);
+  margin-bottom: var(--space-4, 1rem);
+}
+
+h3 {
+  font-size: var(--text-xl, 1.5rem);
+  margin-bottom: var(--space-3, 0.75rem);
+}
+
+h4 {
+  font-size: var(--text-lg, 1.25rem);
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+h5 {
+  font-size: var(--text-md, 1.125rem);
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+h6 {
+  font-size: var(--text-base, 1rem);
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+p {
+  margin-bottom: var(--space-4, 1rem);
+}
+
+/* Lists without markers by default */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset default styles for links */
+a {
+  text-decoration: none;
+  color: var(--color-primary-600, #2563eb);
+  cursor: pointer;
+  transition: color var(--transition-fast, 0.1s) var(--ease-default, ease);
+}
+
+a:hover {
+  color: var(--color-primary-500, #3b82f6);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary-500, #3b82f6);
+  outline-offset: 2px;
+}
+
+/* 
+ * Form elements
+ * Improve usability and consistency of form elements
+ */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Remove default button styles */
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* 
+ * Accessibility and interactive elements
+ * Improve focus visibility and interactive elements
+ */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500, #3b82f6);
+  outline-offset: 2px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[disabled] {
+  cursor: not-allowed;
+}
+
+/* 
+ * Selection
+ * Style the text selection appearance
+ */
+::selection {
+  background-color: var(--color-primary-200, #c7d2fe);
+  color: var(--color-primary-800, #1e40af);
+}
+
+/* 
+ * Responsive defaults
+ * Set defaults for print and responsive design
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    background-color: #fff;
+  }
+  
+  @page {
+    margin: 1.5cm;
+  }
+}

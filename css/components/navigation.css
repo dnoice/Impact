@@ -1,0 +1,250 @@
+/* navigation.css - Styling for the primary navigation component
+ * Includes responsive header, logo, navigation links, mobile menu,
+ * and scroll behavior enhancements.
+ */
+
+/* Primary Header */
+.primary-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-navigation);
+  transition: transform var(--transition-normal) var(--ease-out),
+              background-color var(--transition-normal) var(--ease-out),
+              box-shadow var(--transition-normal) var(--ease-out);
+  background-color: rgba(var(--color-bg-primary-rgb, 249, 250, 251), 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Header scroll states */
+.primary-header.scrolled {
+  box-shadow: var(--shadow-md);
+  background-color: rgba(var(--color-bg-primary-rgb, 249, 250, 251), 0.95);
+}
+
+.primary-header.hidden {
+  transform: translateY(-100%);
+}
+
+.primary-header.scroll-paused {
+  transition: transform var(--transition-slow) var(--ease-in-out),
+              background-color var(--transition-slow) var(--ease-in-out),
+              box-shadow var(--transition-slow) var(--ease-in-out);
+}
+
+/* Navigation Container */
+.primary-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) 0;
+  transition: padding var(--transition-normal) var(--ease-out);
+}
+
+.scrolled .primary-navigation {
+  padding: var(--space-2) 0;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  transition: transform var(--transition-fast) var(--ease-out),
+              color var(--transition-fast) var(--ease-out);
+}
+
+.logo:hover {
+  color: var(--color-primary-500);
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-2);
+}
+
+.logo-text {
+  font-weight: var(--font-bold);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-base);
+  padding: var(--space-2) var(--space-1);
+  transition: color var(--transition-fast) var(--ease-out);
+}
+
+.nav-link:hover {
+  color: var(--color-primary-500);
+}
+
+/* Active link indicator */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-500);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-normal) var(--ease-out);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(0.5);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--color-primary-600);
+  font-weight: var(--font-semibold);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-primary);
+  border-radius: 3px;
+  transition: all var(--transition-fast) var(--ease-in-out);
+}
+
+/* Hamburger to X animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    flex-direction: column;
+    background-color: var(--color-bg-secondary);
+    padding: calc(var(--space-16) + var(--space-8)) var(--space-6) var(--space-6);
+    transform: translateX(100%);
+    transition: transform var(--transition-normal) var(--ease-in-out),
+                box-shadow var(--transition-normal) var(--ease-in-out);
+    box-shadow: none;
+    gap: var(--space-8);
+    z-index: 5;
+  }
+  
+  /* When mobile menu is active */
+  .mobile-active .nav-links {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex;
+    z-index: 9;
+  }
+  
+  /* Adjust nav link styles for mobile */
+  .nav-link {
+    font-size: var(--text-lg);
+    padding: var(--space-2) 0;
+  }
+  
+  .nav-link::after {
+    bottom: -4px;
+    height: 3px;
+  }
+  
+  /* Prevent scrolling when mobile menu is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+  
+  /* Create overlay behind mobile menu */
+  .mobile-active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    opacity: 1;
+    transition: opacity var(--transition-normal) var(--ease-in-out);
+  }
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: var(--text-base);
+  }
+  
+  .logo-icon {
+    transform: scale(0.85);
+  }
+  
+  .primary-navigation {
+    padding: var(--space-3) 0;
+  }
+  
+  .scrolled .primary-navigation {
+    padding: var(--space-2) 0;
+  }
+}
+
+/* Preserve header spacing */
+body {
+  padding-top: 72px; /* Adjust to match header height */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 64px;
+  }
+}

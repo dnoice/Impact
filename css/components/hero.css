@@ -1,0 +1,283 @@
+/* hero.css - Styling for the hero/intro section of the EcoImpact dashboard */
+
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, 
+    var(--color-bg-secondary) 0%, 
+    var(--color-bg-primary) 100%);
+}
+
+/* Container for both content and visual */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+}
+
+/* Text content area */
+.hero-content {
+  z-index: 2;
+  position: relative;
+  max-width: 640px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroContentFadeIn 1s var(--ease-out) forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+}
+
+.hero-title .accent {
+  background: linear-gradient(90deg, 
+    var(--color-primary-500) 0%, 
+    var(--color-accent-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  max-width: 520px;
+  line-height: var(--leading-relaxed);
+}
+
+.hero-description {
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-8);
+  line-height: var(--leading-relaxed);
+}
+
+/* Call to action buttons */
+.hero-cta {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-normal) var(--ease-out);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-600);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-500);
+  background-color: var(--color-bg-secondary);
+}
+
+/* Visual element - split design */
+.hero-visual {
+  position: relative;
+  min-height: 300px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroVisualFadeIn 1.2s var(--ease-out) forwards;
+  animation-delay: 0.8s;
+}
+
+.split-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+  box-shadow: var(--shadow-xl);
+}
+
+.visual-left,
+.visual-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  transition: all var(--transition-slow) var(--ease-out);
+}
+
+.visual-left {
+  left: 0;
+  background: linear-gradient(120deg, 
+    var(--color-bg-elevated) 0%, 
+    var(--color-primary-50) 100%);
+}
+
+.visual-right {
+  right: 0;
+  background: linear-gradient(240deg, 
+    var(--color-accent-50) 0%, 
+    var(--color-error-50) 100%);
+}
+
+/* Digital grid effect */
+.digital-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--color-primary-200) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-primary-200) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.2;
+}
+
+/* Impact visual - placeholder for now */
+.impact-visual {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 50% 50%, 
+    var(--color-error-300) 0%, 
+    transparent 70%
+  );
+  opacity: 0.3;
+}
+
+/* Animated flow particles between sides */
+.flow-particles {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.flow-particles::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    var(--color-primary-400) 50%, 
+    var(--color-accent-500) 100%);
+  animation: flowParticles 3s linear infinite;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-xl);
+  }
+  
+  .hero-visual {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+  
+  .hero-visual {
+    min-height: 500px;
+  }
+}
+
+/* Animations */
+@keyframes heroContentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroVisualFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flowParticles {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Hover effects for visual */
+.hero-section:hover .visual-left {
+  width: 45%;
+}
+
+.hero-section:hover .visual-right {
+  width: 55%;
+}
